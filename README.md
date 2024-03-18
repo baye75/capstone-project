@@ -30,24 +30,60 @@ The prometheus-helm folder contains Terraform configuration files for the creati
 The nginx-controller folder contains Terraform configuration files that defines the parameters for Ingress-nginx and also Route53 hosted zone. The Ingress-nginx is an Ingress controller for Kubernetes which uses Nginx webserver as areverse proxy and a load balancer. A domain name, "muhammadbaye.me" which was previously obtained from the Namecheap domain providers was hosted using Amazon Route 53, with the configurations provided.
 The ingress-rule folder contains Terraform configuration files that Ingress rules for the sock shop application and also prometheus-grafana into the hosted zone. The sock shop application is hosted as a subdomain under the domain name at "sock-shop.muhammadbaye.me".
 
-## Deployment Platforms
+## Deployment Platform
 
-The [deploy folder](./deploy/) contains scripts and instructions to provision the application onto your favourite platform. 
+The Continuous Integration Continous Delivery (CI/CD) platform used is Jenkins. As mentioned earlier, Jenkins is an automation server which enables developers to reliably build, test, and deploy software/applications. Two Jenkinsfiles have been used in this project to automate the deployment of the sock shop application. The first one is named "cluster-Jenkinsfile" and it is used to deploy the creation of our Kubernetes cluster, which have been confiured using the configuration files in the eks folder. This cluster-Jenkinsfile also sets our environments by configuring our AWS credentials so that Jenkins can communicate with AWS. Parameters were also set to be able to create and destroy the cluster with just a click when you select to build with paramters.
+The second Jenkinsfile is named "Jenkinsfile" also sets the environment by configuring the AWS credentials. Then it has four "create" stages to automate the deployment of the four sub-folders under the "kubernetes" folder mentioned earlier. Four stages of "destroy" have also been set to enable the infrastructure to be easily destroyed with a click. 
 
-Please let us know if there is a platform that you would like to see supported.
+## Visualizing the Application
 
-## Bugs, Feature Requests and Contributing
+The sock shop application can be viewed at http://sock-shop.muhammadbaye.me and the grafana metrics can be viewed at http://grafana.muhammadbaye.me
 
-We'd love to see community contributions. We like to keep it simple and use Github issues to track bugs and feature requests and pull requests to manage contributions. See the [contribution information](.github/CONTRIBUTING.md) for more information.
+## Screenshots
 
-## Screenshot
+Attached below are screenshots of the deployment process, the running application and the grafana analytics and motoring page.
 
-![Sock Shop frontend](https://github.com/microservices-demo/microservices-demo.github.io/raw/master/assets/sockshop-frontend.png)
+![alt text](assets/jenkins1.png)
+![alt text](assets/jenkins2.png)
+![alt text](assets/jenkins3.png)
+![alt text](assets/jenkins4.png)
+![alt text](assets/jenkins5.png)
+![alt text](assets/jenkins6.png)
+![alt text](assets/jenkins7.png)
+![alt text](assets/jenkins8.png)
 
-## Visualizing the application
+![alt text](assets/socks1.png)
+![alt text](assets/socks2.png)
+![alt text](assets/socks3.png)
+![alt text](assets/socks4.png)
+![alt text](assets/socks5.png)
+![alt text](assets/socks6.png)
 
-Use [Weave Scope](http://weave.works/products/weave-scope/) or [Weave Cloud](http://cloud.weave.works/) to visualize the application once it's running in the selected [target platform](./deploy/).
+![alt text](assets/grafana1.png)
+![alt text](assets/grafana2.png)
+![alt text](assets/grafana3.png)
+![alt text](assets/grafana4.png)
+![alt text](assets/grafana5.png)
+![alt text](assets/grafana6.png)
+![alt text](assets/grafana7.png)
+![alt text](assets/grafana8.png)
+![alt text](assets/grafana9.png)
+![alt text](assets/grafana10.png)
+![alt text](assets/grafana11.png)
+![alt text](assets/grafana12.png)
+![alt text](assets/grafana13.png)
+![alt text](assets/grafana14.png)
+![alt text](assets/grafana15.png)
 
-![Sock Shop in Weave Scope](https://github.com/microservices-demo/microservices-demo.github.io/raw/master/assets/sockshop-scope.png)
+![alt text](assets/eks.png)
+![alt text](assets/nodes.png)
+![alt text](assets/route53.png)
+![alt text](assets/acm1.png)
+![alt text](assets/acm2.png)
+![alt text](assets/acm3.png)
 
-## 
+## Architectural Diagram
+Below is a simple diagram of the architectural layout of the entire set up:
+
+![alt text](assets/architecture.drawio.png)
+
