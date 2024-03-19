@@ -33,15 +33,15 @@ The ingress-rule folder contains Terraform configuration files that Ingress rule
 ## Deployment Platform
 
 The Continuous Integration Continous Delivery (CI/CD) platform used is Jenkins. As mentioned earlier, Jenkins is an automation server which enables developers to reliably build, test, and deploy software/applications. Two Jenkinsfiles have been used in this project to automate the deployment of the sock shop application. The first one is named "cluster-Jenkinsfile" and it is used to deploy the creation of our Kubernetes cluster, which have been confiured using the configuration files in the eks folder. This cluster-Jenkinsfile also sets our environments by configuring our AWS credentials so that Jenkins can communicate with AWS. Parameters were also set to be able to create and destroy the cluster with just a click when you select to build with paramters.
-The second Jenkinsfile is named "Jenkinsfile" also sets the environment by configuring the AWS credentials. Then it has four "create" stages to automate the deployment of the four sub-folders under the "kubernetes" folder mentioned earlier. Four stages of "destroy" have also been set to enable the infrastructure to be easily destroyed with a click. 
+The second Jenkinsfile is named "Jenkinsfile" also sets the environment by configuring the AWS credentials. It has four "create" stages to automate the deployment of the four sub-folders under the "kubernetes" folder mentioned earlier. Four stages of "destroy" have also been set to enable the infrastructure to be easily destroyed with a click. 
 
 ## Visualizing the Application
 
-The sock shop application can be viewed at http://sock-shop.muhammadbaye.me and the grafana metrics can be viewed at http://grafana.muhammadbaye.me
+The sock shop application can be viewed at http://sock-shop.muhammadbaye.me and the grafana metrics can be viewed at http://grafana.muhammadbaye.me when the application is deployed and is running.
 
 ## Screenshots
 
-Attached below are screenshots of the deployment process, the running application and the grafana analytics and motoring page.
+Attached below are screenshots of the deployment process, the running application and the grafana analytics and monitoring page.
 
 ![alt text](assets/jenkins1.png)
 ![alt text](assets/jenkins2.png)
@@ -87,3 +87,7 @@ Below is a simple diagram of the architectural layout of the entire set up:
 
 ![alt text](assets/architecture.drawio.png)
 
+### Limitations/Setbacks
+
+One of the aims of this project is to encrypt the application so that it is accessiblle over a secure protocol (HTTPS). Part of the configuration files was set to request for Amazon Certificate through the Amazon Certificate Manager (ACM). Even though this was issued (as shown in some of the screenshots attached), it failed to encrypt the application. In addition, GitHub Pages was also used to enforce HTTPS on the domain name (muhammadbaye.me) which successfully encrypted the domain name, but unfortunately failed to encrypt the sub-domains under the domain name (sock-shop.muhammadbaye.me and grafana.muhammadbaye.me). 
+Hence, one of the areas that can be improved upon is encryption of the application so that the application ia accessible HTTPS.
