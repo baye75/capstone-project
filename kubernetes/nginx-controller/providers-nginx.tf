@@ -54,8 +54,3 @@ provider "kubectl" {
    token                  = data.aws_eks_cluster_auth.tech-prod-sock-cluster_auth.token
    config_path = "~/.kube/config"
 }
-
-
-#export the kubeconfig file
-
-#export KUBECONFIG=~/.kube/config
