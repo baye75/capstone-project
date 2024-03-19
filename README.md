@@ -85,7 +85,7 @@ Attached below are screenshots of the deployment process, the running applicatio
 ## Architectural Diagram
 Below is a simple diagram of the architectural layout of the entire set up:
 
-![alt text](assets/architecture.drawio.png)
+![alt text](assets/architecture.png)
 
 ### Limitations/Setbacks
 
